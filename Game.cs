@@ -7,7 +7,7 @@ namespace HelloWorld
     class Game
     {
         bool _gameOver = false;
-        string _playerName = "Hero";
+        string _playerName = ("Hero");
         int _playerHealth = 120;
         int _playerDamage = 20;
         int _playerDefense = 10;
@@ -30,7 +30,7 @@ namespace HelloWorld
             int enemyHealth = 0;
             int enemyAttack = 0;
             int enemyDefense = 0;
-            string enemyName = "";
+            string enemyName = ("");
             //Changes the enemy's default stats based on our current room number. 
             //This is how we make it seem as if the player is fighting different enemies
             switch (roomNum)
@@ -40,35 +40,35 @@ namespace HelloWorld
                         enemyHealth = 100;
                         enemyAttack = 20;
                         enemyDefense = 5;
-                        enemyName = "Wizard";
+                        enemyName = ("Wizard");
                     }
                 case 1:
                     {
                         enemyHealth = 80;
                         enemyAttack = 30;
                         enemyDefense = 5;
-                        enemyName = "Troll";
+                        enemyName = ("Troll");
                     }
-                case 2
+                case 2:
                     {
                         
                         enemyHealth = 200;
                         enemyAttack = 40;
                         enemyDefense = 10;
-                        enemyName = "Giant";
+                        enemyName = ("Giant");
                     }
             }
 
             //Loops until the player or the enemy is dead
-            while(_playerHealth >= 0 || enemyHealth >= 0)
+            while(_playerHealth >= 0 && enemyHealth >= 0)
             {
-                //Displays the stats for both charactersa to the screen before the player takes their turn
+                //Displays the stats for both characters to the screen before the player takes their turn
                 PrintStats(_playerName, _playerHealth, _playerDamage, _playerDefense);
                 PrintStats(enemyName, enemyHealth, enemyAttack, enemyDefense);
 
                 //Get input from the player
                 char input;
-                GetInput(input, "Attack", "Defend");
+                GetInput("input", "Attack", "Defend");
                 //If input is 1, the player wants to attack. By default the enemy blocks any incoming attack
                 if(input == '1')
                 {
@@ -98,7 +98,7 @@ namespace HelloWorld
                 
             }
             //Return whether or not our player died
-            return _playerHealth != 0;
+            return (_playerHealth != 0);
 
         }
         //Decrements the health of a character. The attack value is subtracted by that character's defense
@@ -130,7 +130,7 @@ namespace HelloWorld
         void GetInput(out char input,string option1, string option2)
         {
             //Initialize input
-            input = ' ';
+            input = ("");
             //Loop until the player enters a valid input
             while(input != '1' && input != '2')
                 Console.WriteLine("1." + option1);
@@ -162,7 +162,7 @@ namespace HelloWorld
                     {
                         Console.WriteLine("A troll stands before you");
                     }
-                case 2
+                case 2:
                     {
                         Console.WriteLine("A giant has appeared!");
                     }
@@ -202,21 +202,21 @@ namespace HelloWorld
                 {
                     case '1':
                         {
-                            _playerName = "Sir Kibble";
+                            _playerName = ("Sir Kibble");
                             _playerHealth = 120;
                             _playerDefense = 10;
                             _playerDamage = 40;
                         }
                     case '2':
                         {
-                            _playerName = "Gnojoel";
+                            _playerName = ("Gnojoel");
                             _playerHealth = 40;
                             _playerDefense = 2;
                             _playerDamage = 70;
                         }
-                    case '3'
+                    case '3':
                         {
-                            _playerName = "Joedazz";
+                            _playerName = ("Joedazz");
                             _playerHealth = 200;
                             _playerDefense = 5;
                             _playerDamage = 25;
